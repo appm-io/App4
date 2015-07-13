@@ -2,24 +2,46 @@ package com.creative_on.app4;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
 
 
-public class MainActivity extends ActionBarActivity {
-
-    public static final String DEBUGTAG = "CREATIVE";
+public class LoginActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+
+        addTouchListner();
+    }
+
+    private void addTouchListner(){
+        ImageView img = (ImageView)findViewById(R.id.image);
+
+        img.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                float x = event.getX();
+                float y = event.getY();
+
+                String message = String.format("coord: (%.2f, %.2f)", x, y);
+
+                Log.d(MainActivity.DEBUGTAG, message);
+
+                return false;
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 
