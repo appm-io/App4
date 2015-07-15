@@ -24,6 +24,10 @@
             android:name=".Server"
             android:label="@string/title_activity_server" >
         </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
     </application>
 
 </manifest>
