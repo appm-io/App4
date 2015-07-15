@@ -38,6 +38,7 @@ public class Server extends ActionBarActivity {
                         @Override
                         public void run() {
                             TextView textView = (TextView) findViewById(R.id.output);
+                            textView.append("/n");
                             try {
                                 JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
                                 for (int i=0;i<items.length();i++) {
