@@ -55,13 +55,8 @@ public class LoginActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, Server.class);
-            startActivity(intent);
-            return true;
-        }
 
-        if (id == R.id.action_main) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, Server.class);
             startActivity(intent);
             return true;
         }
