@@ -61,6 +61,13 @@ public class LoginActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_main) {
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
