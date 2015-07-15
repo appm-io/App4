@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
-    public static final String DEBUGTAG = "CREATIVE";
+    public static final String DEBUGTAG = "MIHAI";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
