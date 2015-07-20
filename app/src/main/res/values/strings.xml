@@ -19,6 +19,6 @@
     <string name="action_example">Example action</string>
     <string name="mihai_t">Mihai T</string>
 
-
+    <string-array name="list_items"><item>S1</item><item>S2</item><item>S3</item></string-array>
     <string name="null_value">...</string>
 </resources>
