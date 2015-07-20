@@ -7,6 +7,7 @@
     <string name="title_activity_server">Server</string>
     <string name="irina">Irina</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_stats">Stats</string>
 
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -17,4 +18,7 @@
 
     <string name="action_example">Example action</string>
     <string name="mihai_t">Mihai T</string>
+
+
+    <string name="null_value">...</string>
 </resources>
