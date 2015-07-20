@@ -138,6 +138,7 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
