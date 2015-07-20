@@ -83,7 +83,7 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
                 pointCollector.clear();
 
                 if(pass == true){
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent i = new Intent(LoginActivity.this, Stats.class);
                     startActivity(i);
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied", Toast.LENGTH_LONG).show();
