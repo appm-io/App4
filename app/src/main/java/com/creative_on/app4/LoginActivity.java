@@ -1,5 +1,7 @@
 package com.creative_on.app4;
 
+import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +11,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.util.List;
 
-public class LoginActivity extends ActionBarActivity {
+
+public class LoginActivity extends ActionBarActivity implements PointCollecterListener {
+
+    private PointCollector pointCollector = new PointCollector();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,24 +24,14 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
 
         addTouchListner();
+
+        pointCollector.setListener(this);
     }
 
     private void addTouchListner(){
         ImageView img = (ImageView)findViewById(R.id.image);
 
-        img.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x = event.getX();
-                float y = event.getY();
-
-                String message = String.format("coord: (%.2f, %.2f)", x, y);
-
-                Log.d(MainActivity.DEBUGTAG, message);
-
-                return false;
-            }
-        });
+        img.setOnTouchListener(pointCollector);
     }
 
     @Override
@@ -54,9 +50,31 @@ public class LoginActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            Intent intent = new Intent(this, Server.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_main) {
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_menu) {
+
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void pointsCollected(List<Point> points) {
+        Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
     }
 }

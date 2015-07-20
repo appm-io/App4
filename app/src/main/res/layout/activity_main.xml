@@ -10,10 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView"
         android:background="#ffff000e"
-        android:textColor="#fffdfdfe"
-        android:textStyle="bold|italic"
-        android:textSize="20dp"
-        android:padding="5dp" />
+        android:textColor="#fffdfdfe" />
 
     <TextView android:text="@string/hello_world" android:layout_width="match_parent"
         android:layout_height="wrap_content"
