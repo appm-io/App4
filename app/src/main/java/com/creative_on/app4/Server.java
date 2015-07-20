@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -19,6 +21,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 public class Server extends ActionBarActivity {
@@ -29,6 +32,15 @@ public class Server extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
+        String[] values = getResources().getStringArray(R.array.list_items);
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
+
+        ListView list = (ListView)findViewById(R.id.listView);
+        list.setAdapter(adapter);
+
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
                 try {
@@ -37,6 +49,9 @@ public class Server extends ActionBarActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+
+                            ListView list = (ListView)findViewById(R.id.listView);
+
                             TextView textView = (TextView) findViewById(R.id.output);
                             textView.append("\n");
                             try {
