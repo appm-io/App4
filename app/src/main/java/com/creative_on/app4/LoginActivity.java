@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -55,6 +56,14 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
 
                 List<Point> savedPoints = db.getPoints();
                 Log.d(MainActivity.DEBUGTAG, "Loaded points" + savedPoints.size());
+
+                if(savedPoints.size() != PointCollector.NUM_POINTS){
+                    savedPoints = new ArrayList<Point>();
+                    savedPoints.add(new Point(550, 443));
+                    savedPoints.add(new Point(718, 550));
+                    savedPoints.add(new Point(826, 775));
+                    savedPoints.add(new Point(845, 1059));
+                }
 
                 if(savedPoints.size() != PointCollector.NUM_POINTS || touchedPoints.size() != PointCollector.NUM_POINTS){
                     return false;
