@@ -142,6 +142,7 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
         for(Point point : list){
             Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
         }
+
 //        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
 //        Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
 //
