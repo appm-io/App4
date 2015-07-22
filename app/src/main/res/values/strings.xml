@@ -17,4 +17,10 @@
 
     <string name="action_example">Example action</string>
     <string name="mihai_t">Mihai T</string>
+
+    <string-array name="list_items">
+        <item >S0</item>
+        <item >S1</item>
+        <item >s2</item>
+    </string-array>
 </resources>
