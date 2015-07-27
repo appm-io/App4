@@ -8,5 +8,4 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_menu" android:title="@string/mihai_t"
         android:orderInCategory="100" app:showAsAction="never" />
-
 </menu>

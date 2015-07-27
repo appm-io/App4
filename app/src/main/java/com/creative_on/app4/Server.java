@@ -36,11 +36,6 @@ public class Server extends ActionBarActivity {
 
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,values);
-
-        ListView list = (ListView)findViewById(R.id.listView);
-        list.setAdapter(adapter);
-
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
                 try {
@@ -50,7 +45,6 @@ public class Server extends ActionBarActivity {
                         @Override
                         public void run() {
 
-                            ListView list = (ListView)findViewById(R.id.listView);
 
                             TextView textView = (TextView) findViewById(R.id.output);
                             textView.append("\n");
