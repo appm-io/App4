@@ -1,15 +1,20 @@
 package com.creative_on.app4;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,30 +33,44 @@ import java.util.ArrayList;
 public class Server extends ActionBarActivity {
 
     String jsonString = "";
-
+    private ArrayAdapter<String> listAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
 
+        final ListView list_item = (ListView)findViewById(R.id.list_item);
+        final ArrayList<String> newList = new ArrayList<String>();
+
+        Handler h = new Handler();
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
                 try {
                     downloadJSON();
                     Log.d("Apelare downloadJSON", jsonString);
+
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                        TextView textView = (TextView) findViewById(R.id.output);
-                        textView.append("\n");
+                       // TextView textView = (TextView) findViewById(R.id.output);
+                        //textView.append("\n");
                         try {
                             JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
                             for (int i=0;i<items.length();i++) {
                                 JSONObject item = (JSONObject)items.get(i);
                                 String nameServer = item.getString("label");
-                                textView.append(nameServer);
-                                textView.append("\n");
+                                newList.add(nameServer);
+                                //textView.append(nameServer);
+                                //textView.append("\n");
+//                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                                    @Override
+//                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                                        Toast.makeText(Server.this, "Position: " + position + "; value " + parent.getItemIdAtPosition(position), Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
                             }
+                            listAdapter = new ArrayAdapter<String>(Server.this, R.layout.list_row, newList);
+                            list_item.setAdapter(listAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -77,6 +96,8 @@ public class Server extends ActionBarActivity {
             }
         }.execute();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
