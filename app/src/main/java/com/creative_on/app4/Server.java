@@ -32,9 +32,6 @@ public class Server extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
-        String[] values = getResources().getStringArray(R.array.list_items);
-
-
 
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
