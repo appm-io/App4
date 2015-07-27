@@ -30,6 +30,10 @@
             android:name=".StyleActivity"
             android:label="@string/title_activity_style" >
         </activity>
+        <activity
+            android:name=".EdiActivity"
+            android:label="@string/title_activity_edi" >
+        </activity>
     </application>
 
 </manifest>

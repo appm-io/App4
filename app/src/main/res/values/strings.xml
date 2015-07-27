@@ -24,4 +24,7 @@
     <string name="alert_interval">Set the alert interval time:</string>
     <string name="main_activity">Main activity</string>
     <string name="title_activity_style">Irina</string>
+
+    <string name="edi">Edi</string>
+    <string name="title_activity_edi">EdiActivity</string>
 </resources>
