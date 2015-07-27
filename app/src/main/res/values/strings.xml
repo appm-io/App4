@@ -17,4 +17,6 @@
 
     <string name="action_example">Example action</string>
     <string name="mihai_t">Mihai T</string>
+    <string name="main_activity">Main activity</string>
+    <string name="title_activity_style">StyleActivity</string>
 </resources>
