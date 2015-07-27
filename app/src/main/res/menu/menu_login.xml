@@ -4,10 +4,12 @@
     tools:context="com.creative_on.app4.LoginActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_main" android:title="@string/irina"
+    <item android:id="@+id/action_main" android:title="@string/main_activity"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_irina" android:title="@string/irina"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_menu" android:title="@string/mihai_t"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_server" android:title="@string/viorel"
+    <item android:id="@+id/action_edi" android:title="@string/edi"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

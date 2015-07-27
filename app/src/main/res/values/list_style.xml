@@ -2,6 +2,7 @@
 <resources>
     <style name="mystyle">
         <item name="android:background">@drawable/list_background</item>
+
     </style>
 
 </resources>

@@ -6,7 +6,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_server">Server</string>
     <string name="irina">Irina</string>
-    <string name="viorel">Viorel</string>
     <string name="title_activity_menu">MenuActivity</string>
 
     <string name="title_section1">Section 1</string>
@@ -23,9 +22,9 @@
     <string name="settings_info">Here you can change the intervals for refresh or alerts</string>
     <string name="settings_refresh">Set the refresh interval time:</string>
     <string name="alert_interval">Set the alert interval time:</string>
-    <string-array name="list_options">
-        <item>Server 0</item>
-        <item>Server 1</item>
-        <item>Server 2</item>
-    </string-array>
+    <string name="main_activity">Main activity</string>
+    <string name="title_activity_style">Irina</string>
+
+    <string name="edi">Edi</string>
+    <string name="title_activity_edi">EdiActivity</string>
 </resources>
