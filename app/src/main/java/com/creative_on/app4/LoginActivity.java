@@ -1,6 +1,10 @@
 package com.creative_on.app4;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Point;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +13,18 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.List;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends ActionBarActivity implements PointCollecterListener {
+
+    private static final String PASSWORD_SET = "PASSWORD_SET";
+    private PointCollector pointCollector = new PointCollector();
+
+    private Database db = new Database(this);
+    private final static int POINT_CLOSENESS = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,24 +32,65 @@ public class LoginActivity extends ActionBarActivity {
         setContentView(R.layout.activity_login);
 
         addTouchListner();
+
+        pointCollector.setListener(this);
     }
 
     private void addTouchListner(){
         ImageView img = (ImageView)findViewById(R.id.image);
 
-        img.setOnTouchListener(new View.OnTouchListener() {
+        img.setOnTouchListener(pointCollector);
+    }
+
+    public void verifyPasspoints(final List<Point> touchedPoints){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Checking passpoints ...");
+
+        final AlertDialog dlg = builder.create();
+        dlg.show();
+
+        AsyncTask<Void, Void, Boolean> task = new AsyncTask<Void, Void, Boolean>() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                float x = event.getX();
-                float y = event.getY();
+            protected Boolean doInBackground(Void... params) {
 
-                String message = String.format("coord: (%.2f, %.2f)", x, y);
+                List<Point> savedPoints = db.getPoints();
+                Log.d(MainActivity.DEBUGTAG, "Loaded points" + savedPoints.size());
 
-                Log.d(MainActivity.DEBUGTAG, message);
+                if(savedPoints.size() != PointCollector.NUM_POINTS || touchedPoints.size() != PointCollector.NUM_POINTS){
+                    return false;
+                }
 
-                return false;
+                for(int i=0; i<PointCollector.NUM_POINTS; i++){
+                    Point savedPoint = savedPoints.get(i);
+                    Point touchedPoint = touchedPoints.get(i);
+
+                    int xDiff = savedPoint.x - touchedPoint.x;
+                    int yDiff = savedPoint.y - touchedPoint.y;
+
+                    int distSquared = xDiff*xDiff + yDiff*yDiff;
+
+                    if(distSquared > POINT_CLOSENESS*POINT_CLOSENESS){
+                        return false;
+                    }
+                }
+
+                return true;
             }
-        });
+
+            @Override
+            protected void onPostExecute(Boolean pass) {
+                dlg.dismiss();
+                pointCollector.clear();
+
+                if(pass == true){
+                    Intent i = new Intent(LoginActivity.this, Stats.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Access denied", Toast.LENGTH_LONG).show();
+                }
+            }
+        };
+        task.execute();
     }
 
     @Override
@@ -68,6 +122,31 @@ public class LoginActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_menu) {
+
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void pointsCollected(List<Point> points) {
+        Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
+
+        db.storePoints(points);
+
+        List<Point> list = db.getPoints();
+        for(Point point : list){
+            Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
+        }
+
+//        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+//        Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
+//
+//        Log.d(MainActivity.DEBUGTAG, "Verifying passpoints...");
+//        verifyPasspoints(points);
     }
 }

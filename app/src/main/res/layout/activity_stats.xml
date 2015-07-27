@@ -23,6 +23,28 @@
             android:background="#fff08118"
             android:layout_margin="4dp">
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="bottom|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="CPU"
+                android:id="@+id/cpu"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="top|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="..."
+                android:id="@+id/cpu_value"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
         </LinearLayout>
 
         <LinearLayout
@@ -32,7 +54,28 @@
             android:orientation="vertical"
             android:background="#ffff3c42"
             android:layout_margin="4dp">
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="bottom|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="RAM"
+                android:id="@+id/ram"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="top|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="..."
+                android:id="@+id/ram_value"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
         </LinearLayout>
 
 
@@ -62,7 +105,10 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Average Load"
                 android:id="@+id/averageLoad"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="0dp"
@@ -81,7 +127,9 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="..."
                         android:id="@+id/averageLoad_value_min"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:textSize="35dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -96,7 +144,9 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="..."
                         android:id="@+id/averageLoad_value"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="#ffffff"
+                        android:textSize="40dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -111,7 +161,9 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="..."
                         android:id="@+id/averageLoad_value_max"
-                        android:layout_gravity="center_horizontal" />
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="35dp"
+                        android:textColor="#ffffff" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -135,7 +187,28 @@
             android:orientation="vertical"
             android:background="#f0f00f"
             android:layout_margin="4dp">
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="bottom|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Network"
+                android:id="@+id/network"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="top|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="..."
+                android:id="@+id/network_value"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
         </LinearLayout>
 
         <LinearLayout
@@ -145,7 +218,28 @@
             android:orientation="vertical"
             android:background="#ff0fff"
             android:layout_margin="4dp">
-
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="bottom|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Disk Usage"
+                android:id="@+id/disk_usage"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top|center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="..."
+                android:id="@+id/disk_usage_value"
+                android:textSize="40dp"
+                android:textIsSelectable="false"
+                android:textColor="#ffffff" />
         </LinearLayout>
 
 
