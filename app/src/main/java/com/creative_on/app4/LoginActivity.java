@@ -54,7 +54,14 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
             protected Boolean doInBackground(Void... params) {
 
                 List<Point> savedPoints = db.getPoints();
-                Log.d(MainActivity.DEBUGTAG, "Loaded points" + savedPoints.size());
+                Log.d(MainActivity.DEBUGTAG, "Loaded points " + savedPoints.size());
+
+                if(savedPoints.size() != PointCollector.NUM_POINTS){
+                    savedPoints.add(new Point(562, 453));
+                    savedPoints.add(new Point(707, 553));
+                    savedPoints.add(new Point(816, 781));
+                    savedPoints.add(new Point(802, 1086));
+                }
 
                 if(savedPoints.size() != PointCollector.NUM_POINTS || touchedPoints.size() != PointCollector.NUM_POINTS){
                     return false;
@@ -83,7 +90,7 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
                 pointCollector.clear();
 
                 if(pass == true){
-                    Intent i = new Intent(LoginActivity.this, Stats.class);
+                    Intent i = new Intent(LoginActivity.this, StyleActivity.class);
                     startActivity(i);
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied", Toast.LENGTH_LONG).show();
@@ -143,17 +150,17 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
     public void pointsCollected(List<Point> points) {
         Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
 
-        db.storePoints(points);
-
-        List<Point> list = db.getPoints();
-        for(Point point : list){
-            Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
-        }
-
-//        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-//        Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
+//        db.storePoints(points);
 //
-//        Log.d(MainActivity.DEBUGTAG, "Verifying passpoints...");
-//        verifyPasspoints(points);
+//        List<Point> list = db.getPoints();
+//        for(Point point : list){
+//            Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
+//        }
+
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
+
+        Log.d(MainActivity.DEBUGTAG, "Verifying passpoints...");
+        verifyPasspoints(points);
     }
 }
