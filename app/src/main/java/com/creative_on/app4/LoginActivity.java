@@ -150,6 +150,13 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
             return true;
         }
 
+        if (id == R.id.action_viorel) {
+
+            Intent intent = new Intent(this, Server.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
