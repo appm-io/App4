@@ -1,5 +1,13 @@
 package com.creative_on.app4;
-
+        import android.content.Intent;
+        import android.graphics.Color;
+        import android.support.v7.app.ActionBarActivity;
+        import android.os.Bundle;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.TextView;
+        import android.widget.Toast;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,11 +15,21 @@ import android.view.MenuItem;
 
 
 public class StyleActivity extends ActionBarActivity {
-
+    public static final String DEBUGTAG = "CREATIVE";
+    public boolean read = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_style);
+        final TextView tv=(TextView)findViewById(R.id.btn_change_background);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+                tv.setBackgroundResource(R.drawable.list_background);
+            }
+        });
+        tv.setHeight(70);
     }
 
     @Override
