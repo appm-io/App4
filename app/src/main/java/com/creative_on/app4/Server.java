@@ -1,6 +1,8 @@
 package com.creative_on.app4;
 
+import android.annotation.TargetApi;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 public class Server extends ActionBarActivity {
 
     String jsonString = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +98,7 @@ public class Server extends ActionBarActivity {
         String line = null;
         String json = "";
         while ((line = br.readLine()) != null) {
-           // Log.d("JWP",line);
+            // Log.d("JWP",line);
             json += line;
         }
         jsonString = json;
