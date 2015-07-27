@@ -11,4 +11,5 @@
         android:id="@+id/textView"
         android:layout_weight="0.12"
         android:textSize="17px"/>
+
 </LinearLayout>
