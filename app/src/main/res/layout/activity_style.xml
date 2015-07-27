@@ -8,8 +8,8 @@
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:text="Salut Creative"
-        android:id="@+id/textView"
+        android:id="@+id/btn_change_background"
         android:layout_weight="0.12"
-        android:textSize="17px"/>
+        android:textSize="50px"/>
 
 </LinearLayout>
