@@ -1,5 +1,6 @@
 package com.creative_on.app4;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -41,21 +42,19 @@ public class Server extends ActionBarActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-
-                            TextView textView = (TextView) findViewById(R.id.output);
-                            textView.append("\n");
-                            try {
-                                JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
-                                for (int i=0;i<items.length();i++) {
-                                    JSONObject item = (JSONObject)items.get(i);
-                                    String nameServer = item.getString("label");
-                                    textView.append(nameServer);
-                                    textView.append("\n");
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                        TextView textView = (TextView) findViewById(R.id.output);
+                        textView.append("\n");
+                        try {
+                            JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
+                            for (int i=0;i<items.length();i++) {
+                                JSONObject item = (JSONObject)items.get(i);
+                                String nameServer = item.getString("label");
+                                textView.append(nameServer);
+                                textView.append("\n");
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         }
                     });
 
@@ -111,6 +110,27 @@ public class Server extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.action_server) {
+
+            Intent intent = new Intent(this, Server.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_main) {
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        if (id == R.id.action_menu) {
+
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
             return true;
         }
 

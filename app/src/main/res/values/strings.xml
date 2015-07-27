@@ -6,6 +6,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_server">Server</string>
     <string name="irina">Irina</string>
+    <string name="viorel">Viorel</string>
     <string name="title_activity_menu">MenuActivity</string>
 
     <string name="title_section1">Section 1</string>

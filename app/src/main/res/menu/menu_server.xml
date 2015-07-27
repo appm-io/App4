@@ -1,6 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context="com.creative_on.app4.Server">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.creative_on.app4.Server">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_main" android:title="@string/irina"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_menu" android:title="@string/mihai_t"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_server" android:title="@string/viorel"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

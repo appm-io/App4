@@ -109,6 +109,10 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.action_server) {
 
             Intent intent = new Intent(this, Server.class);
             startActivity(intent);
