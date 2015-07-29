@@ -83,6 +83,7 @@ public class Server extends ActionBarActivity {
                                                 intent.putExtra("test", text); //this should pass the SQLite ROW_ID
                                                 intent.putExtra("name", name); //this should pass the value of R.id.text1
                                                 startActivity(intent);
+
                                                 break;
                                             case 1:
 
