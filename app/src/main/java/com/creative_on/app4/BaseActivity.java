@@ -78,6 +78,9 @@ public class BaseActivity extends Activity {
     /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {*/
+
+    /*http://stackoverflow.com/questions/19451715/same-navigation-drawer-in-different-activities*/
+
     protected void onCreateDrawer() {
         /*super.onCreate(savedInstanceState);*/
         setContentView(R.layout.activity_base);
