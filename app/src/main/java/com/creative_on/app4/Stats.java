@@ -3,10 +3,17 @@ package com.creative_on.app4;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -15,13 +22,21 @@ public class Stats extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_server);
+        setContentView(R.layout.activity_stats);
+        Log.d("MrnP", "ENtered");
+        String link = "http://d3.xfactorapp.com/creative/sys/android_server_info/0";
+        try {
+            updateFields(link);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_server, menu);
+        getMenuInflater().inflate(R.menu.menu_stats, menu);
         return true;
     }
 
@@ -39,8 +54,9 @@ public class Stats extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void updateFields(String url){
-
+    public void updateFields(String url) throws IOException {
+       
+        getData(url);
     }
     public void setFields(ArrayList<String> fields){
         //GET ELEMENTS FROM FRONT END BY ID
@@ -62,4 +78,18 @@ public class Stats extends ActionBarActivity {
         disk_usage.setText(fields.get(6).toString());
 
     }
+    public void getData(String url) throws IOException {
+        URL link = new URL("http://d3.xfactorapp.com/creative/sys/android_server_info/0/");
+        Log.d("MrnP", url);
+        InputStream is = link.openStream();/*
+        InputStreamReader sr = new InputStreamReader(is);
+        BufferedReader bf = new BufferedReader(sr);
+        String line= null;
+        while((line = bf.readLine()) != null){
+            Log.d("MrnP", line);
+        }
+
+*/
+    }
+
 }
