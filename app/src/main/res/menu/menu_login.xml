@@ -14,4 +14,6 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_viorel" android:title="@string/viorel"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_mp" android:title="@string/mp"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>

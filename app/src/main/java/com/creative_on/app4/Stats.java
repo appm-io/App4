@@ -1,5 +1,6 @@
 package com.creative_on.app4;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -32,14 +33,12 @@ public class Stats extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
         Log.d("MrnP", "Entered stats");
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-
+        Intent intent = getIntent();
 
         int refreshRate = prefs.getInt("refreshRate", 1000);
-        final String link = "http://d3.xfactorapp.com/creative/sys/android_server_info/0";
-
+        final String link = intent.getStringExtra("href");
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
