@@ -21,7 +21,7 @@ public class Database extends SQLiteOpenHelper{
     private static final String COL_Y = "Y";
 
     public Database(Context context) {
-        super(context, "points.db", null, 1);
+        super(context, "creative.db", null, 1);
     }
 
     @Override
