@@ -75,9 +75,11 @@ public class BaseActivity extends Activity {
     private CharSequence mTitle;
     private String[] mPlanetTitles;
 
+    /*
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {*/
+    protected void onCreateDrawer() {
+        /*super.onCreate(savedInstanceState);*/
         setContentView(R.layout.activity_base);
 
         mTitle = mDrawerTitle = getTitle();
@@ -117,9 +119,11 @@ public class BaseActivity extends Activity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        /*
         if (savedInstanceState == null) {
             selectItem(0);
         }
+        */
     }
 
     @Override

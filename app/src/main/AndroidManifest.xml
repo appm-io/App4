@@ -34,6 +34,10 @@
             android:name=".Server"
             android:label="@string/viorel" >
         </activity>
+        <activity
+            android:name=".BaseActivity"
+            android:label="@string/base_activity_name" >
+        </activity>
     </application>
 
 </manifest>

@@ -42,4 +42,5 @@
     <string name="edi">Edi</string>
     <string name="title_activity_edi">EdiActivity</string>
     <string name="viorel">Viorel</string>
+    <string name="base_activity_name">MenYu</string>
 </resources>
