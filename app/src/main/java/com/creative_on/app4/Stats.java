@@ -137,8 +137,8 @@ public class Stats extends ActionBarActivity {
 
     }
     public void getData(String url) throws IOException, JSONException {
-        URL link = new URL("http://d3.xfactorapp.com/creative/sys/android_server_info/0/");
-       // Log.d("MrnP", url);
+        URL link = new URL(url);
+        // Log.d("MrnP", url);
         InputStream is = link.openStream();
         InputStreamReader sr = new InputStreamReader(is);
         BufferedReader bf = new BufferedReader(sr);
@@ -151,7 +151,7 @@ public class Stats extends ActionBarActivity {
 
         }
         if(reader != null){
-            fields.add(reader.getString("cpu"));
+            fields.add(reader.getString("server"));
             fields.add(reader.getString("ram"));
             fields.add(reader.getString("load"));
             fields.add(reader.getString("load"));
