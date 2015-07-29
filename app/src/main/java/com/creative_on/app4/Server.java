@@ -61,6 +61,7 @@ public class Server extends ActionBarActivity {
                            // TextView textView = (TextView) findViewById(R.id.output);
                             //textView.append("\n");
                             try {
+
                                 final JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
                                // Server.setItems(items);
                                 for (int i=0;i<items.length();i++) {
