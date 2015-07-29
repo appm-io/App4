@@ -56,13 +56,6 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
                 List<Point> savedPoints = db.getPoints();
                 Log.d(MainActivity.DEBUGTAG, "Loaded points " + savedPoints.size());
 
-                if(savedPoints.size() != PointCollector.NUM_POINTS){
-                    savedPoints.add(new Point(562, 453));
-                    savedPoints.add(new Point(707, 553));
-                    savedPoints.add(new Point(816, 781));
-                    savedPoints.add(new Point(802, 1086));
-                }
-
                 if(savedPoints.size() != PointCollector.NUM_POINTS || touchedPoints.size() != PointCollector.NUM_POINTS){
                     return false;
                 }
@@ -164,17 +157,21 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
     public void pointsCollected(List<Point> points) {
         Log.d(MainActivity.DEBUGTAG, "Collected points: " + points.size());
 
-//        db.storePoints(points);
-//
-//        List<Point> list = db.getPoints();
-//        for(Point point : list){
-//            Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
-//        }
+        List<Point> savedPoints = db.getPoints();
+        if(savedPoints.size() != PointCollector.NUM_POINTS) {
+            Log.d(MainActivity.DEBUGTAG, "Save passpoints");
+            db.storePoints(points);
 
-        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
+            List<Point> list = db.getPoints();
+            for (Point point : list) {
+                Log.d(MainActivity.DEBUGTAG, String.format("Got point: (%d, %d)", point.x, point.y));
+            }
+        } else {
+            SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+            Boolean passpointsSet = prefs.getBoolean(PASSWORD_SET, false);
 
-        Log.d(MainActivity.DEBUGTAG, "Verifying passpoints...");
-        verifyPasspoints(points);
+            Log.d(MainActivity.DEBUGTAG, "Verifying passpoints...");
+            verifyPasspoints(points);
+        }
     }
 }
