@@ -79,7 +79,7 @@ public class Server extends ActionBarActivity {
                                             case 0:
                                                 String text = "Test";
                                                 String name = "Teapa";
-                                                Intent intent = new Intent(Server.this, EdiActivity.class);
+                                                Intent intent = new Intent(Server.this, LoginActivity.class);
                                                 intent.putExtra("test", text); //this should pass the SQLite ROW_ID
                                                 intent.putExtra("name", name); //this should pass the value of R.id.text1
                                                 startActivity(intent);
