@@ -38,6 +38,10 @@
             android:name=".Server"
             android:label="@string/viorel" >
         </activity>
+        <activity
+            android:name=".Stats"
+            android:label="@string/title_activity_stats" >
+        </activity>
     </application>
 
 </manifest>
