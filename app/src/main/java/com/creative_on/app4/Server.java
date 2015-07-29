@@ -77,7 +77,7 @@ public class Server extends ActionBarActivity {
                                         try {
                                             JSONObject item = (JSONObject)items.get(position);
                                             Intent intent = new Intent(Server.this, Stats.class);
-                                            intent.putExtra("href", item.getString("href")); //this should pass the SQLite ROW_ID
+                                            intent.putExtra("href", item.getString("href"));
                                             startActivity(intent);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
