@@ -67,27 +67,16 @@ public class Server extends ActionBarActivity {
                                     JSONObject item = (JSONObject)items.get(i);
                                     String nameServer = item.getString("label");
                                     newList.add(nameServer);
-                                    //textView.append(nameServer);
-                                    //textView.append("\n");
-    //                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    //                                    @Override
-    //                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    //                                        Toast.makeText(Server.this, "Position: " + position + "; value " + parent.getItemIdAtPosition(position), Toast.LENGTH_SHORT).show();
-    //                                    }
-    //                                });
                                 }
                                 listAdapter = new ArrayAdapter<String>(Server.this, R.layout.list_row, newList);
                                 list_item.setAdapter(listAdapter);
 
                                 list_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        //final TextView mTextView = (TextView) view;
-                                        //JSONArray items = (JSONArray)(new JSONTokener(jsonString));
                                         try {
                                             JSONObject item = (JSONObject)items.get(position);
                                             Intent intent = new Intent(Server.this, Stats.class);
                                             intent.putExtra("href", item.getString("href")); //this should pass the SQLite ROW_ID
-                                            //intent.putExtra("name", name); //this should pass the value of R.id.text1
                                             startActivity(intent);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
