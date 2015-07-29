@@ -32,6 +32,8 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
         setContentView(R.layout.activity_login);
 
         addTouchListner();
+        Intent i = getIntent();
+        Toast.makeText(LoginActivity.this, i.getStringExtra("test"), Toast.LENGTH_LONG).show();
 
         pointCollector.setListener(this);
     }
