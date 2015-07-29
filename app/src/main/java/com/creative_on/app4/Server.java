@@ -79,24 +79,22 @@ public class Server extends ActionBarActivity {
                                             case 0:
                                                 String text = "Test";
                                                 String name = "Teapa";
-                                                TextView test = (TextView)findViewById(R.id.output);
-                                                test.append(text);
-//                                                Intent intent = new Intent(Server.this, Stats.class);
-//                                                intent.putExtra("test", text); //this should pass the SQLite ROW_ID
-//                                                intent.putExtra("name", name); //this should pass the value of R.id.text1
-//                                                startActivity(intent);
+                                                Intent intent = new Intent(Server.this, EdiActivity.class);
+                                                intent.putExtra("test", text); //this should pass the SQLite ROW_ID
+                                                intent.putExtra("name", name); //this should pass the value of R.id.text1
+                                                startActivity(intent);
                                                 break;
                                             case 1:
 
-                                                Intent newActivity1 = new Intent(Server.this, Stats.class);
+                                                Intent newActivity1 = new Intent(Server.this, MainActivity.class);
                                                 startActivity(newActivity1);
                                                 break;
                                             case 2:
-                                                Intent newActivity2 = new Intent(Server.this, Stats.class);
+                                                Intent newActivity2 = new Intent(Server.this, StyleActivity.class);
                                                 startActivity(newActivity2);
                                                 break;
                                             case 3:
-                                                Intent newActivity3 = new Intent(Server.this, Stats.class);
+                                                Intent newActivity3 = new Intent(Server.this, MenuActivity.class);
                                                 startActivity(newActivity3);
                                                 break;
                                             default:
