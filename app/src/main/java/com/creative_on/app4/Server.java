@@ -34,6 +34,12 @@ public class Server extends ActionBarActivity {
 
     String jsonString = "";
     private ArrayAdapter<String> listAdapter;
+     JSONArray items;
+
+    public void setItems(JSONArray items) {
+        this.items = items;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,51 +61,26 @@ public class Server extends ActionBarActivity {
                            // TextView textView = (TextView) findViewById(R.id.output);
                             //textView.append("\n");
                             try {
-                                JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
+
+                                final JSONArray items = (JSONArray)(new JSONTokener(jsonString).nextValue());
+                               // Server.setItems(items);
                                 for (int i=0;i<items.length();i++) {
                                     JSONObject item = (JSONObject)items.get(i);
                                     String nameServer = item.getString("label");
                                     newList.add(nameServer);
-                                    //textView.append(nameServer);
-                                    //textView.append("\n");
-    //                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    //                                    @Override
-    //                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    //                                        Toast.makeText(Server.this, "Position: " + position + "; value " + parent.getItemIdAtPosition(position), Toast.LENGTH_SHORT).show();
-    //                                    }
-    //                                });
                                 }
                                 listAdapter = new ArrayAdapter<String>(Server.this, R.layout.list_row, newList);
                                 list_item.setAdapter(listAdapter);
 
                                 list_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        //final TextView mTextView = (TextView) view;
-                                        switch (position) {
-                                            case 0:
-                                                String text = "Test";
-                                                String name = "Teapa";
-                                                Intent intent = new Intent(Server.this, LoginActivity.class);
-                                                intent.putExtra("test", text); //this should pass the SQLite ROW_ID
-                                                intent.putExtra("name", name); //this should pass the value of R.id.text1
-                                                startActivity(intent);
-
-                                                break;
-                                            case 1:
-
-                                                Intent newActivity1 = new Intent(Server.this, MainActivity.class);
-                                                startActivity(newActivity1);
-                                                break;
-                                            case 2:
-                                                Intent newActivity2 = new Intent(Server.this, StyleActivity.class);
-                                                startActivity(newActivity2);
-                                                break;
-                                            case 3:
-                                                Intent newActivity3 = new Intent(Server.this, MenuActivity.class);
-                                                startActivity(newActivity3);
-                                                break;
-                                            default:
-
+                                        try {
+                                            JSONObject item = (JSONObject)items.get(position);
+                                            Intent intent = new Intent(Server.this, Stats.class);
+                                            intent.putExtra("href", item.getString("href")); //this should pass the SQLite ROW_ID
+                                            startActivity(intent);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
                                         }
 
                                     }
