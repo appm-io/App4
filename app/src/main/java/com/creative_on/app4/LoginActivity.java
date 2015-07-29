@@ -152,6 +152,13 @@ public class LoginActivity extends ActionBarActivity implements PointCollecterLi
             return true;
         }
 
+        if (id == R.id.action_mp) {
+
+            Intent intent = new Intent(this, Stats.class);
+            startActivity(intent);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

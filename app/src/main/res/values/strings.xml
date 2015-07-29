@@ -28,4 +28,8 @@
     <string name="edi">Edi</string>
     <string name="title_activity_edi">EdiActivity</string>
     <string name="viorel">Viorel</string>
+
+    <string name="title_activity_stats">Stats</string>
+    <string name="mp">MP</string>
+
 </resources>
